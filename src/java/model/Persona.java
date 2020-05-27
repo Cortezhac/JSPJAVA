@@ -29,6 +29,22 @@ public class Persona {
         }
     }
 
+    public boolean insertarDatos(){
+        try {
+            String queryStatement = "INSERT INTO tb_persona VALLUES('"+ dui + "','" + apellidos + "','" + nombre + "');";
+            int estado = 0; // Estado de la insercion
+            statement = con.createStatement();
+            estado = statement.executeUpdate(queryStatement);
+            if(estado == 1){
+                return true;
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE,null,e);
+        }
+        return false;
+    }
+    
+    // Getter y Setter
     public String getDui() {
         return dui;
     }
