@@ -5,6 +5,8 @@
  */
 package model;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,8 +21,12 @@ public class Persona {
     ResultSet miResultSet;
     
     public Persona(){
-        Class.forName("");// Driver jdbc
-        con = DriverManager.getConnection("","","");// url de la BD, user , password
+        try {
+            Class.forName("com.mysql.jdbc.Driver");// Driver jdbc
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bd_recursos_humanos?zeroDateTimeBehavior=convertToNull","root","");// url de la BD, user , password
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getDui() {
