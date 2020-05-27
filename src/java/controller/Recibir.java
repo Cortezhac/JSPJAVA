@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Persona;
 
 /**
  *
@@ -38,6 +39,22 @@ public class Recibir extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws  ServletException, IOException{
+        
+        String dui = request.getParameter("txtDui");
+        String apellido = request.getParameter("txtApellido");
+        String nombre = request.getParameter("txtNombre");
+        
+        Persona persona = new Persona();
+        
+        persona.setDui(dui);
+        persona.setApellidos(apellido);
+        persona.setNombre(nombre);
+        
+        if(persona.insertarDatos() == true){
+            request.getRequestDispatcher("exito.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("noexito.jsp").forward(request, response);
+        }
         processRequest(request, response);
     }
     
