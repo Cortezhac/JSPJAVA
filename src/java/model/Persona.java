@@ -13,9 +13,9 @@ import java.util.logging.Logger;
  * @author Admin
  */
 public class Persona {
-    private String dui;
-    private String apellidos;
-    private String nombre;
+    String dui;
+    String apellidos;
+    String nombre;
     Connection con;
     Statement statement;
     ResultSet miResultSet;
@@ -31,7 +31,7 @@ public class Persona {
 
     public boolean insertarDatos(){
         try {
-            String queryStatement = "INSERT INTO tb_persona VALLUES('"+ dui + "','" + apellidos + "','" + nombre + "');";
+            String queryStatement = "INSERT INTO tb_persona VALUES('"+ dui + "','" + apellidos + "','" + nombre + "');";
             int estado = 0; // Estado de la insercion
             statement = con.createStatement();
             estado = statement.executeUpdate(queryStatement);

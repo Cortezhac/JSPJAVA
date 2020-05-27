@@ -41,7 +41,7 @@ public class Recibir extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws  ServletException, IOException{
         
         String dui = request.getParameter("txtDui");
-        String apellido = request.getParameter("txtApellido");
+        String apellido = request.getParameter("txtApellidos");
         String nombre = request.getParameter("txtNombre");
         
         Persona persona = new Persona();

@@ -21,7 +21,7 @@
             <input type="text" name="txtApellidos" value="" />
             <br/>
             <label for="txtNombre">Nombre:</label>
-            <input type="text" name="txtApellidos" value="" />
+            <input type="text" name="txtNombre" value="" />
             <br/>
             <input type="submit" value="Registrar nueva persona">
         </form>
