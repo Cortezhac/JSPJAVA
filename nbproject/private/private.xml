@@ -6,6 +6,10 @@
             <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/src/java/controller/Recibir.java</file>
             <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/src/java/model/Persona.java</file>
             <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/web/index.jsp</file>
+            <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/web/exito.jsp</file>
+            <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/web/noexito.jsp</file>
+            <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/src/java/controller/Mostrar.java</file>
+            <file>file:/E:/Admin/Documents/NetBeansProjects/RegistrarPersonasMVC/web/mostrartodo.jsp</file>
         </group>
     </open-files>
 </project-private>

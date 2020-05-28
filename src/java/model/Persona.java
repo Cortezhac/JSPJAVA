@@ -7,6 +7,7 @@ package model;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.ArrayList;
 
 /**
  *
@@ -29,6 +30,12 @@ public class Persona {
         }
     }
 
+    public Persona(String dui, String apellido, String nombre){
+        this.dui = dui;
+        this.apellidos = apellido;
+        this.nombre = nombre;
+    }
+    
     public boolean insertarDatos(){
         try {
             String queryStatement = "INSERT INTO tb_persona VALUES('"+ dui + "','" + apellidos + "','" + nombre + "');";
@@ -43,6 +50,27 @@ public class Persona {
         }
         return false;
     }
+    
+    public ArrayList<Persona> consultarRegistros(){
+        ArrayList<Persona> persona = new ArrayList();
+        try {
+            String sqlQueryStatement = "SELECT * FROM tb_persona";
+            statement = con.createStatement(); // Preparar el objeto statement
+            miResultSet = statement.executeQuery(sqlQueryStatement); // ejecutar sentencia SQL
+            while(miResultSet.next()){
+                
+                persona.add(new Persona(
+                        miResultSet.getString("dui_persona"),
+                        miResultSet.getString("apellidos_persona"),
+                        miResultSet.getString("nombre_persona")
+                    )
+                );
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(Persona.class.getName()).log(Level.SEVERE,null,e);
+        }
+        return persona;
+    } 
     
     // Getter y Setter
     public String getDui() {
