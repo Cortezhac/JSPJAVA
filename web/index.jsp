@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Bootsrap/css/bootstrap.css">
         <title>JSP Page</title>
     </head>
     <body>
@@ -26,5 +27,7 @@
             <input type="submit" value="Registrar nueva persona">
         </form>
         <a href="mostrar.do">Ver registros</a>
+    <script src="Bootsrap/js/jquery-3.2.1.js" />
+    <script src="Bootsrap/js/bootstrap.js" />
     </body>
 </html>
