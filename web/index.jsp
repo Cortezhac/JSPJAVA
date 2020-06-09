@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="custom/css/main.css">
         <title>JSP Page</title>
     </head>
-    <body class="fondo">
+    <body>
         <div class="container">
             <div class="row justify-content-center p-4">
                 <div class="col-md4 p-1">

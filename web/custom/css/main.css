@@ -1,4 +1,4 @@
-body.fondo {
-    background-image: url('../img/office-925806_1920.jpg');
+body {
+    background-image: url('../img/office-925806_1920.jpg'); /* Problema un error 404 cuando intento cargar la imagen*/
     background-size: cover;
 }
