@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Registro guardado con exito!!</h1>
+        <a href="mostrar.do">Ver registros</a>
     </body>
 </html>

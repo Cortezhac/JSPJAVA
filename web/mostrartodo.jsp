@@ -16,7 +16,7 @@
         <h1>Todos los registros!</h1>
     <c:forEach var="listaTotal" items="${sessionScope.personas}">
         <label for="dui">Dui</label>
-        ${listaTotal.dui}<br>
+        ${listaTotal.getDui()}<br>
         <label for="apellidos">Apellido</label>
         ${listaTotal.apellidos}<br>
         <label for="nombre">Nombre</label>

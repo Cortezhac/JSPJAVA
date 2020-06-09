@@ -25,5 +25,6 @@
             <br/>
             <input type="submit" value="Registrar nueva persona">
         </form>
+        <a href="mostrar.do">Ver registros</a>
     </body>
 </html>

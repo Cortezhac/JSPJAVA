@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import model.Persona;
  *
  * @author Admin
  */
+@WebServlet(name = "Mostrar", urlPatterns = {"/mostrar.do"})
 public class Mostrar extends HttpServlet {
 
     /**
@@ -29,7 +31,7 @@ public class Mostrar extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         /* TODO output your page here. You may use following sample code. */
         Persona p = new Persona(); // Se inicia la conexion 
@@ -39,6 +41,7 @@ public class Mostrar extends HttpServlet {
         request.getSession().setAttribute("personas", personas);// Asiganr valores a la session
         request.getRequestDispatcher("mostrartodo.jsp").forward(request, response);
     }
+  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -4,17 +4,9 @@
         <servlet-name>Recibir</servlet-name>
         <servlet-class>controller.Recibir</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>Mostrar</servlet-name>
-        <servlet-class>controller.Mostrar</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>Recibir</servlet-name>
         <url-pattern>/recibir.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Mostrar</servlet-name>
-        <url-pattern>/mostrartodo.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
