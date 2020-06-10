@@ -18,7 +18,7 @@ import model.Persona;
  * @author Admin
  */
 public class Recibir extends HttpServlet {
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,15 +34,35 @@ public class Recibir extends HttpServlet {
     
     @Override
     protected  void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+        String Ruta = ""; //Ubicacion de la vista JSP
+        if(accion.equalsIgnoreCase("edit")){
+            String Dui = request.getParameter("dui");
+            Persona utilidadesPersona = new Persona();// permite usar sus utilidades
+            Persona persona = null; // Objeto que almacenara los valores
+            System.out.println("El dui papu " + Dui);
+            persona = (Persona) utilidadesPersona.buscarRegistro(Dui); // CastingConversion explicita
+            //Preparar las variables para el JSP edit
+            System.out.println(persona.getDui());
+            System.out.println(persona.getApellidos());
+            System.out.println(persona.getNombre());
+            
+            request.setAttribute("DUI", persona.getDui());
+            request.setAttribute("APELLIDO", persona.getApellidos());
+            request.setAttribute("NOMBRE", persona.getNombre());
+            Ruta = "Editar.jsp";
+        }
+        request.getRequestDispatcher(Ruta).forward(request, response);// Redirecciona a la vista
+        //processRequest(request, response);
     }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws  ServletException, IOException{
-        
+        String duisineditar = request.getParameter("dui");
         String dui = request.getParameter("txtDui");
         String apellido = request.getParameter("txtApellidos");
         String nombre = request.getParameter("txtNombre");
+        String accion = request.getParameter("accion");
         
         Persona persona = new Persona();
         
@@ -50,7 +70,9 @@ public class Recibir extends HttpServlet {
         persona.setApellidos(apellido);
         persona.setNombre(nombre);
         
-        if(persona.insertarDatos() == true){
+        if(accion.equalsIgnoreCase("actualizar")){
+            
+        }else if(persona.insertarDatos() == true){
             request.getRequestDispatcher("exito.jsp").forward(request, response);
         }else{
             request.getRequestDispatcher("noexito.jsp").forward(request, response);

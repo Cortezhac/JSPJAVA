@@ -51,6 +51,28 @@ public class Persona {
         return false;
     }
     
+    public boolean actualizarDatos(Persona Useredit, String dui , boolean editdui){
+        try{
+            String queryStatement;
+            if(editdui == true){
+                queryStatement = "UPDATE tb_persona SET dui_persona = *" + dui + "' WHERE nombre_persona = '" 
+                    + Useredit.getNombre();
+            }else{
+            queryStatement = "UPDATE tb_persona SET apellidos_persona = '" + Useredit.getApellidos() + "' nombre_persona = '" + Useredit.getNombre() 
+                    + "' WHERE dui_persona = '" + dui + "' ;";
+            }
+            statement = con.createStatement();
+            int estado = 0;
+            estado = statement.executeUpdate(queryStatement);
+            if(estado == 1){
+                return true;
+            }
+        }catch(SQLException ex){
+            System.out.println("" + ex);
+        }
+        return false;
+    }
+    
     public ArrayList<Persona> consultarRegistros(){
         ArrayList<Persona> persona = new ArrayList();
         try {
@@ -70,7 +92,28 @@ public class Persona {
             Logger.getLogger(Persona.class.getName()).log(Level.SEVERE,null,e);
         }
         return persona;
-    } 
+    }
+    
+    /**
+     * Busca un registro en la base de datos y lo retorna en un objeto 
+     * @param dui
+     * @return Resultado
+     */
+    public Persona buscarRegistro(String dui){
+        Persona Resultado = null;
+        try {
+            String sqlQueryStatement = "SELECT * FROM tb_persona WHERE dui_persona = '" + dui + "' ;";
+            statement = con.createStatement();
+            miResultSet = statement.executeQuery(sqlQueryStatement);
+            miResultSet.next();
+            Resultado = new Persona(miResultSet.getString("dui_persona"),
+                                    miResultSet.getString("apellidos_persona"),
+                                    miResultSet.getString("nombre_persona"));
+        } catch (SQLException e) {
+            System.out.println("Error buscarDatos " + getClass() + " " + e);
+        }
+        return Resultado;
+    }
     
     // Getter y Setter
     public String getDui() {

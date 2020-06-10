@@ -10,19 +10,41 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="Bootsrap/css/bootstrap.css">
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Todos los registros!</h1>
-    <c:forEach var="listaTotal" items="${sessionScope.personas}">
-        <label for="dui">Dui</label>
-        ${listaTotal.getDui()}<br>
-        <label for="apellidos">Apellido</label>
-        ${listaTotal.apellidos}<br>
-        <label for="nombre">Nombre</label>
-        ${listaTotal.nombre}<br>
-        <br>
-        <hr>
-    </c:forEach>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="">Todos los registros</h1>
+                    <table class="table responsive-table">
+                        <thead>
+                            <tr>
+                                <th data-field="id">No DUI</th>
+                                <th data-field="name">Nombre</th>
+                                <th data-field="price">Apellido</th>
+                                <th data-field="price">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="listaTotal" items="${sessionScope.personas}">
+                                <tr>
+                                    <td>${listaTotal.getDui()}</td>
+                                    <td>${listaTotal.apellidos}</td>
+                                    <td>${listaTotal.nombre}</td>
+                                    <td>
+                                        <a class="btn btn-warning text-white" href="recibir.do?accion=edit&dui=${listaTotal.getDui()}">Editar</a>
+                                        <a class="btn btn-danger" href="recibir.do?accion=remover&dui=${listaTotal.getDui()}">Eliminar</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    <script src="Bootsrap/js/jquery-3.2.1.min.js"></script>
+    <script src="Bootsrap/js/bootstrap.min.js"></script>
     </body>
 </html>
