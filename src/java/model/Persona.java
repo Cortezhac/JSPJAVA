@@ -55,15 +55,16 @@ public class Persona {
         try{
             String queryStatement;
             if(editdui == true){
-                queryStatement = "UPDATE tb_persona SET dui_persona = *" + dui + "' WHERE nombre_persona = '" 
-                    + Useredit.getNombre();
+                queryStatement = "UPDATE tb_persona SET tb_persona.dui_persona = *" + Useredit.getDui() + "' WHERE tb_persona.apellidos_persona = '" + getApellidos() + "';";
             }else{
-            queryStatement = "UPDATE tb_persona SET apellidos_persona = '" + Useredit.getApellidos() + "' nombre_persona = '" + Useredit.getNombre() 
-                    + "' WHERE dui_persona = '" + dui + "' ;";
+                queryStatement = "UPDATE tb_persona SET apellidos_persona = '" + Useredit.getApellidos() + "', nombre_persona = '" + Useredit.getNombre() 
+                    + "' WHERE dui_persona='" + dui + "';";
             }
             statement = con.createStatement();
             int estado = 0;
+            System.out.println("SQL " + queryStatement);
             estado = statement.executeUpdate(queryStatement);
+
             if(estado == 1){
                 return true;
             }

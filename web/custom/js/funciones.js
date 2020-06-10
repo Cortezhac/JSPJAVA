@@ -7,20 +7,22 @@ function editarDui(){
     var dui = document.getElementById("txtDui");
     var apellidos = document.getElementById("txtApellidos");
     var nombre = document.getElementById("txtNombre");
-    console.log("Memoria dui: " + memoriaDui);
+    console.log("Memoria dui: " + memoriaDui.value);
 
-    if(dui.disabled == false){// Si cancela la edicion de DUI
-        dui.setAttribute("disabled", true);
+    if(dui.getAttribute("readonly") == null){// Si cancela la edicion de DUI
+
+        dui.setAttribute("readonly", true);
         dui.value = memoriaDui.value; //campos de rastauracion
         apellidos.value = memoriaApellido.value; //campos de rastauracion
         nombre.value = memoriaNombre.value; //campos de rastauracion
-        apellidos.removeAttribute("disabled");
-        nombre.removeAttribute("disabled");
+        apellidos.removeAttribute("readonly", false);
+        nombre.removeAttribute("readonly", false);
         boton.value = "Editar"
     }else {// SI desea editar el dui
-        dui.removeAttribute("disabled");
-        apellidos.setAttribute("disabled", true);
-        nombre.setAttribute("disabled", true);
+        console.log(dui.getAttribute("readonly"));
+        dui.removeAttribute("readonly", false);
+        apellidos.setAttribute("readonly", true);
+        nombre.setAttribute("readonly", true);
         boton.value = "Cancelar";
     }
 }

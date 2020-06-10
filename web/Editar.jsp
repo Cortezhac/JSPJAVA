@@ -27,8 +27,8 @@
                         <div class="form-group clearfix">
                             <label for="txtDui" class="form-control-label">Dui :</label><br>
                             <div class="col-11 float-left">
-                                <input type="hidden" id="dui" value="<%= Dui%>">
-                                <input type="text" class="form-control" name="txtDui" id="txtDui" value="<%= Dui%>" disabled>
+                                <input type="hidden" id="dui" name="dui" value="<%= Dui%>">
+                                <input type="text" maxlength="10" class="form-control" name="txtDui" id="txtDui" value="<%= Dui%>" readonly>
                             </div>
                             <div class="col-sm-1 float-right">
                                 <input type="button" id="editar" class="btn btn-warning" onclick="editarDui();" value="Editar">

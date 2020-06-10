@@ -58,21 +58,29 @@ public class Recibir extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws  ServletException, IOException{
+
         String duisineditar = request.getParameter("dui");
         String dui = request.getParameter("txtDui");
         String apellido = request.getParameter("txtApellidos");
         String nombre = request.getParameter("txtNombre");
         String accion = request.getParameter("accion");
-        
+        if(accion == null){accion = "noaccion";} // Por si viene null
         Persona persona = new Persona();
         
         persona.setDui(dui);
         persona.setApellidos(apellido);
         persona.setNombre(nombre);
-        
-        if(accion.equalsIgnoreCase("actualizar")){
-            if(duisineditar.equals(persona.getDui())){
-                
+        System.out.println("accion : " + accion);
+        System.out.println(persona.getDui());
+        System.out.println(persona.getNombre());
+        System.out.println(persona.getApellidos());
+        if(accion.equals("actualizar")){
+            if(duisineditar.equals(persona.getDui())){// Actualizar solo los nomnres
+                persona.actualizarDatos(persona, duisineditar, false);
+                request.getRequestDispatcher("mostrar.do").forward(request, response);
+            }else{//Actualizar dui
+                persona.actualizarDatos(persona, duisineditar, true);
+                request.getRequestDispatcher("mostrar.do").forward(request, response);
             }
         }else if(persona.insertarDatos() == true){
             request.getRequestDispatcher("exito.jsp").forward(request, response);
