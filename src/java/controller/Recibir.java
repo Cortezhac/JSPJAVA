@@ -71,7 +71,9 @@ public class Recibir extends HttpServlet {
         persona.setNombre(nombre);
         
         if(accion.equalsIgnoreCase("actualizar")){
-            
+            if(duisineditar.equals(persona.getDui())){
+                
+            }
         }else if(persona.insertarDatos() == true){
             request.getRequestDispatcher("exito.jsp").forward(request, response);
         }else{
