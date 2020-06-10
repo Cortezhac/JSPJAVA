@@ -16,24 +16,24 @@
     <body>
         <div class="container">
             <div class="row justify-content-center p-4">
-                <div class="col-md4 p-1">
+                <div class="col-md4 p-3 custom-back">
                     <h1 class="center">Registro de personas</h1>
                     <form action="recibir.do" method="POST">
                       <div class="form-group row">
                         <label for="txtDui" class="col-sm-2 col-form-label">Dui:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                           <input type="text" class="form-control" name="txtDui" id="txtDui" maxlength="10">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="txtApellidos" class="col-sm-2 col-form-label">Apellidos:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                           <input type="text" class="form-control" name="txtApellidos" id="txtApellidos">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="txtNombre" class="col-sm-2 col-form-label">Nombre:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-12">
                           <input type="text" class="form-control" name="txtNombre" id="txtNombre">
                         </div>
                       </div>
