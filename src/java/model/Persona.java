@@ -116,6 +116,14 @@ public class Persona {
         return Resultado;
     }
     
+    public boolean eliminarRegistro(String dui){
+        try {
+            
+        } catch (Exception e) {
+        }
+        return false;
+    }
+    
     // Getter y Setter
     public String getDui() {
         return dui;

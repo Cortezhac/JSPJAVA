@@ -35,7 +35,7 @@
                                     <td>${listaTotal.nombre}</td>
                                     <td>
                                         <a class="btn btn-warning text-white" href="recibir.do?accion=edit&dui=${listaTotal.getDui()}">Editar</a>
-                                        <a class="btn btn-danger" href="recibir.do?accion=remover&dui=${listaTotal.getDui()}">Eliminar</a>
+                                        <a class="btn btn-danger" href="Eliminar.do?dui=${listaTotal.getDui()}">Eliminar</a>
                                     </td>
                                 </tr>
                             </c:forEach>
