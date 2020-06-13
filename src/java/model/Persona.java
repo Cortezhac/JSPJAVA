@@ -118,8 +118,12 @@ public class Persona {
     
     public boolean eliminarRegistro(String dui){
         try {
-            
-        } catch (Exception e) {
+            String sqlQuery = "DELETE FROM tb_persona WHERE dui_persona = '" + dui + "';";
+            statement = con.createStatement();
+            statement.executeUpdate(sqlQuery);
+            return true;
+        } catch (SQLException e) {
+            System.out.println("Algo anda mal en eliminar" + e);
         }
         return false;
     }

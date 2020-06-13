@@ -71,7 +71,11 @@ public class Eliminar extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
          String dui = request.getParameter("txtDui");
-        
+         Persona utilidades = new Persona();
+         
+        if(utilidades.eliminarRegistro(dui)){
+            request.getRequestDispatcher("mostrar.do").forward(request, response);
+        }
         //processRequest(request, response);
         
     }
