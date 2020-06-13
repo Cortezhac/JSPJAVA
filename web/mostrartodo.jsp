@@ -18,6 +18,7 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="">Todos los registros</h1>
+                    <a href="index.jsp" class="btn btn-info">Agregar</a>
                     <table class="table responsive-table">
                         <thead>
                             <tr>

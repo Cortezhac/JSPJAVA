@@ -45,16 +45,18 @@ public class Eliminar extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Recibo el dui por el metodo get
         String id = request.getParameter("dui");
         // Preguntar a la bd por el registro
-        Persona utilidades = new Persona();
+        Persona utilidades = new Persona(); // abre la conexion ver constructor
         System.out.println("DUI " + id);
+        //busca el registro y lo guarda en persona
         Persona personadelete = (Persona) utilidades.buscarRegistro(id);
         //Creo las variables locales de la vista
         request.setAttribute("DUI", personadelete.getDui());
         request.setAttribute("NOMBRE", personadelete.getNombre());
         request.setAttribute("APELLIDO", personadelete.getApellidos());
-        //Refirecciono a la vista
+        //Redirecciono a la vista
         request.getRequestDispatcher("Eliminar.jsp").forward(request, response);
         //processRequest(request, response);
     }
@@ -70,8 +72,13 @@ public class Eliminar extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Recibo el dui por el metodo post
          String dui = request.getParameter("txtDui");
-        
+         Persona utilidades = new Persona();
+         
+        if(utilidades.eliminarRegistro(dui)){
+            request.getRequestDispatcher("mostrar.do").forward(request, response);
+        }
         //processRequest(request, response);
         
     }
