@@ -48,6 +48,8 @@
                 </div>
             </div>
         </div>
-      
+        <script src="Bootsrap/js/jquery-3.2.1.js"></script>
+        <script src="Bootsrap/js/bootstrap.min.js"></script>
+        <script src="custom/js/funciones.js"></script><!-- Funciones de validacion -->
     </body>
 </html>
