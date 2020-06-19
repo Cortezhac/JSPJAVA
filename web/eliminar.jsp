@@ -41,7 +41,32 @@
                     </div>
 
                     
-                    
+                    <!-- Modal  -->
+                    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="titulomodal" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="titulomodal">Se eliminara a</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <%= nombre + " " + apellido%>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Yamete kudasai!!</button>
+                            <form action="Eliminar.do" method="post">
+                                <input type="hidden" name="txtDui" value="<%= dui%>">
+                                <button type="submit"  class="btn btn-danger">Si, eliminar</button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="Bootsrap/js/jquery-3.2.1.min.js"></script>
         <script src="Bootsrap/js/bootstrap.min.js"></script>
     </body>
